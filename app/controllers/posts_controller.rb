@@ -7,8 +7,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params["post"])
+    @post.user_id = @current_user.id
     @post.save
     redirect_to "/places/#{@post.place.id}"
   end
+
 
 end
